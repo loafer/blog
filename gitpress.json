@@ -3,7 +3,7 @@
             "java": "posts/java",
             "javaScript": "posts/javaScript",
             "Mockito": "posts/mockito",
-            "其他": "others"
+            "其他": "posts/others"
         },
         "template"    : "default",
         "types"     : {
