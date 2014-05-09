@@ -1,11 +1,17 @@
 {
-        "docs"      : {"201405": "201405"},
-        "template"    : "default",
+        "docs"      : {
+            "java": "posts/java",
+            "javaScript": "posts/javaScript",
+            "Mockito": "posts/mockito",
+            "其他": "others"
+        },
+        "template"    : "pithiness",
         "types"     : {
                 "\\.(md||markdown)$"   : "markdown", 
                 "\\.(js||css||json)$"  : "code",
                 "\\.html?$"            : "html",
                 ".*"                   : "text"                
         },
-        "title"  : "爱看书不识字的唠叨"
+        "title"  : "爱看书不识字的唠叨",
+        "comment"  : {"type": "duoshuo", "short_name":"loafer"},
 }
