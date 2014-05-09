@@ -5,7 +5,7 @@
             "Mockito": "posts/mockito",
             "其他": "others"
         },
-        "template"    : "pithiness",
+        "template"    : "default",
         "types"     : {
                 "\\.(md||markdown)$"   : "markdown", 
                 "\\.(js||css||json)$"  : "code",
