@@ -12,6 +12,6 @@
                 "\\.html?$"            : "html",
                 ".*"                   : "text"                
         },
-        "title"  : "爱看书不识字的唠叨",
+        "title"  : "老赵的唠叨",
         "comment"  : {"type": "duoshuo", "short_name":"loafer"},
 }
