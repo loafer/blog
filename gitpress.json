@@ -1,11 +1,11 @@
 {
         "docs"      : {"201405": "201405"},
-        "template"    : "default",
+        "template"    : "slate",
         "types"     : {
                 "\\.(md||markdown)$"   : "markdown", 
                 "\\.(js||css||json)$"  : "code",
                 "\\.html?$"            : "html",
                 ".*"                   : "text"                
         },
-        "title"  : "爱看书不识字的唠叨"
+        "title"  : "IT民工"
 }
