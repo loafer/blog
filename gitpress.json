@@ -1,6 +1,6 @@
 {
         "docs"      : {"201405": "201405"},
-        "template"    : "pithiness",
+        "template"    : "default",
         "types"     : {
                 "\\.(md||markdown)$"   : "markdown", 
                 "\\.(js||css||json)$"  : "code",
