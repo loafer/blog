@@ -1,8 +1,8 @@
 使用Mockito验证对象方法调用
 ===
 
-<div style="font-size: 12px; color: #888; width:100%;text-align:right">作者[爱看书不识字](http://blog.loafer.github.com)发布与2014年5月</div>    
-
+<div style="font-size: 12px; color: #888; width:100%;text-align:left">作者[爱看书不识字](http://blog.loafer.github.com)发布与2014年5月</div>    
+<br>  
 ##验证mock对象方法调用
 
     //创建一个mock对象   
@@ -16,7 +16,7 @@
     //验证方法size()是否被调用
     verify(mockedList).size();//因为没有调用过size()，所以会验证失败 
 <!--more-->
-   
+<br>   
 ##验证mock对象方法调用次数
     List<String> mockedList = mock(List.class);
 
@@ -40,14 +40,14 @@
     //验证方法clear最多被执行过2次
     verify(mockedList, atMost(2)).clear();   
 
-    
+<br>   
 ##验证mock对象没有方法调用
     List<String> mockedList = mock(List.class);
 
     //验证mockedList没有发生过交互
     verifyZeroInteractions(mockedList);   
  
-       
+<br>       
 ##验证mock对象是否存在多余方法调用
     List<String> mockedList = mock(List.class);
 
@@ -59,7 +59,7 @@
     //检查是否存在未验证的方法调用，存在则验证失败
     verifyNoMoreInteractions(mockedList); //验证失败，因为没有验证方法clear调用   
 
-      
+<br>     
 ##验证mock对象方法执行顺序
     //验证单个mock对象方法的执行顺序
     List<String> mockedList = mock(List.class);
@@ -89,7 +89,7 @@
     inOrder2.verify(firstMock).add("was called first");
     inOrder2.verify(secondMock).add("was called second");   
 
-      
+<br>   
 ##验证方法调用是否使用了指定的参数
     List<String> mockedList = mock(List.class);
 
@@ -100,7 +100,7 @@
     //验证方法add调用时传入的参数是“two”
     verify(mockedList).add("two"); //验证失败  
 
-         
+<br>   
 ##使用Argument Matcher参数验证方式调用
     List<String> mockedStringList = mock(List.class);
     List<Integer> mockedIntegerList = mock(List.class);
@@ -113,7 +113,7 @@
     //验证mockedIntegerList的方法add被调用，并且参数类型是Integer
     verify(mockedIntegerList).add(anyInt());   
 
-        
+<br>        
 ##使用ArgumentCaptor参数验证方法调用
     List<String> mockedList = mock(List.class);
 
