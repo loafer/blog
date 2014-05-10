@@ -2,7 +2,7 @@
         "docs"      : {
             "java": "posts/java",
             "javaScript": "posts/javaScript",
-            "Mockito": "posts/mockito",
+            "单元测试": "posts/unittesting",
             "其他": "posts/others"
         },
         "template"    : "default",
