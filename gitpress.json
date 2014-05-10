@@ -12,6 +12,6 @@
                 "\\.html?$"            : "html",
                 ".*"                   : "text"                
         },
-        "title"  : "老赵的唠叨",
+        "title"  : "找机会唠叨",
         "comment"  : {"type": "duoshuo", "short_name":"loafer"},
 }
