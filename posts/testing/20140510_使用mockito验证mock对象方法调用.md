@@ -1,7 +1,7 @@
 使用Mockito验证对象方法调用
 ===
 
-<div style="font-size: 12px; color: #888">发布与2014年5月</div>
+<div style="font-size: 12px; color: #888; width:100%;text-align:right">发布与2014年5月</div>
 
 
 ##验证mock对象方法调用
