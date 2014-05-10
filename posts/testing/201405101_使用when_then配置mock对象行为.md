@@ -14,6 +14,7 @@ Mockito when/then 的使用
     verify(mockedList).get(0);
     assertEquals(value, "first");
 <br>
+<!--more-->
 ##另一种方式配置mock对象方法调用返回值
     List<String> mockedList = mock(List.class);
 
