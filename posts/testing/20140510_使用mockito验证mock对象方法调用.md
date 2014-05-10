@@ -1,5 +1,9 @@
 使用Mockito验证对象方法调用
 ===
+
+######发布与2014年5月
+
+
 ##验证mock对象方法调用
 
     //创建一个mock对象   
@@ -34,13 +38,13 @@
     //验证方法clear至少被执行过2次
     verify(mockedList, atLeast(2)).clear();
     //验证方法clear最多被执行过2次
-    verify(mockedList, atMost(2)).clear();
+    verify(mockedList, atMost(2)).clear();   
 
 ##验证mock对象没有方法调用
     List<String> mockedList = mock(List.class);
 
     //验证mockedList没有发生过交互
-    verifyZeroInteractions(mockedList);
+    verifyZeroInteractions(mockedList);   
 
 ##验证mock对象是否存在多余方法调用
     List<String> mockedList = mock(List.class);
@@ -51,7 +55,7 @@
     //验证方法size是否被调用
     verify(mockedList).size();
     //检查是否存在未验证的方法调用，存在则验证失败
-    verifyNoMoreInteractions(mockedList); //验证失败，因为没有验证方法clear调用
+    verifyNoMoreInteractions(mockedList); //验证失败，因为没有验证方法clear调用   
 
 ##验证mock对象方法执行顺序
     //验证单个mock对象方法的执行顺序
@@ -80,7 +84,7 @@
     //则验证失败
     InOrder inOrder2 = inOrder(firstMock, secondMock);
     inOrder2.verify(firstMock).add("was called first");
-    inOrder2.verify(secondMock).add("was called second");
+    inOrder2.verify(secondMock).add("was called second");   
 
 ##验证方法调用是否使用了指定的参数
     List<String> mockedList = mock(List.class);
@@ -90,4 +94,34 @@
     //验证方法add调用时传入的参数是“one”
     verify(mockedList).add("one"); //验证成功
     //验证方法add调用时传入的参数是“two”
-    verify(mockedList).add("two"); //验证失败
+    verify(mockedList).add("two"); //验证失败  
+
+##使用Argument Matcher参数验证方式调用
+    List<String> mockedStringList = mock(List.class);
+    List<Integer> mockedIntegerList = mock(List.class);
+
+    mockedStringList.add("one");
+    mockedIntegerList.add(999);
+
+    //验证mockedStringList的方法add被调用，并且参数类型是String
+    verify(mockedStringList).add(anyString());
+    //验证mockedIntegerList的方法add被调用，并且参数类型是Integer
+    verify(mockedIntegerList).add(anyInt());   
+
+##使用ArgumentCaptor参数验证方法调用
+    List<String> mockedList = mock(List.class);
+
+    mockedList.addAll(Lists.<String>newArrayList("someElement"));
+    ArgumentCaptor<List> argumentCaptor = ArgumentCaptor.forClass(List.class);
+
+    //检查方法addAll是否被调用
+    verify(mockedList).addAll(argumentCaptor.capture());
+    //检查方法addAll调用时的参数中是否含有"someElement"
+    List<String> capturedArgument = argumentCaptor.getValue();
+    assertThat(capturedArgument, hasItem("someElement"));  
+
+以上例子的实现代码你可以在[我的GitHub mockito工程]()中找到。  
+
+##参考
+http://www.baeldung.com/mockito-verify   
+http://mockito.googlecode.com/svn/branches/1.6/javadoc/org/mockito/Mockito.html   
