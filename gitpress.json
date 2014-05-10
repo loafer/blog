@@ -14,4 +14,21 @@
         },
         "title"  : "找机会唠叨",
         "comment"  : {"type": "duoshuo", "short_name":"loafer"},
+        "friends"  : [
+                {
+                  "name"  : "github",
+                  "title"  : "github",
+                  "url"  : "http://github.com"          
+                },
+                {
+                  "name"  : "gitpress",
+                  "title"  : "gitpress",
+                  "url"  : "http://gitpress.org"
+                },
+                {
+                    "name":"duoshuo",
+                    "title":"多说",
+                    "url": "http://duoshou.com"
+                }
+            ] 
 }
