@@ -2,7 +2,7 @@
         "docs"      : {
             "java": "posts/java",
             "javaScript": "posts/javaScript",
-            "单元测试": "posts/unittesting",
+            "测试驱动": "posts/testing",
             "其他": "posts/others"
         },
         "template"    : "default",
