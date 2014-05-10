@@ -12,7 +12,7 @@
     verify(mockedList).clear();
     //验证方法size()是否被调用
     verify(mockedList).size();//因为没有调用过size()，所以会验证失败 
-<!-- more -->  
+<!--more-->
 ##验证mock对象方法调用次数
     List<String> mockedList = mock(List.class);
 
