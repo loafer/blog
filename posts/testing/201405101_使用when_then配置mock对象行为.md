@@ -1,7 +1,7 @@
 Mockito when/then 的使用
 ====
 <div style="font-size: 12px; color: #888; width:100%;text-align:left;margin-bottom:10px;">
-作者：[爱看书不识字](http://blog.loafer.gitpress.org/)，发布与2014年5月
+作者  [爱看书不识字](http://blog.loafer.gitpress.org/)，发布于2014年5月
 </div>  
 这篇主要介绍使用 when/then 来配置mock对象的各种行为。   
 

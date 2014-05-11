@@ -1,7 +1,7 @@
 使用Mockito验证对象方法调用
 ===
 
-<div style="font-size: 12px; color: #888; width:100%;text-align:left;margin-bottom:10px;">作者:[爱看书不识字](http://blog.loafer.gitpress.org/)，发布与2014年5月</div>    
+<div style="font-size: 12px; color: #888; width:100%;text-align:left;margin-bottom:10px;">作者 [爱看书不识字](http://blog.loafer.gitpress.org/)，发布于2014年5月</div>    
 ##验证mock对象方法调用
 
     //创建一个mock对象   
