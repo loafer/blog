@@ -19,7 +19,7 @@ AngularJS&mdash;&mdash;起步
 3. 如果使用IE7，需添加`id="ng-app"`。
 
 4. 如果期望在IE上使用旧的语法指令`ng:`，则需要在`<html>`标签上包含一个xml命名空间。(出于历史原因，不再推荐使用`ng:`)    
-
+<!--more-->
 
 ##自动启动
 
@@ -59,3 +59,15 @@ Angular会在`DOMContentLoaded`事件或`angular.js`脚本加载完成并且`doc
       </script>
     </body>
     </html>
+
+注意我们将应用模块的名称作为第二个参数注入到了`angular.bootstrap`方法中。因此你必须在传递参数之前创建你的模块。    
+你也可以调用`angular.bootstrap`，这样应用启动后你就不能添加controllers、services、directives。
+
+    注意：当手动启动你的应用时不要在使用ng-app。
+
+以下是代码执行顺序：    
+1. 当页面和所有代码加载完后，查找Angular应用的根元素，通常是document的根。    
+2. 调用`angular.bootstrap`将元素编译成可执行的、双向数据绑定的应用。
+
+##参考
+https://docs.angularjs.org/guide/bootstrap
