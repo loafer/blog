@@ -1,6 +1,8 @@
 AngularJS&mdash;&mdash;起步
 ===
-
+<div style="font-size: 12px; color: #888; width:100%;text-align:left;margin-bottom:10px;">
+作者  [爱看书不识字](http://blog.loafer.gitpress.org/)，发布于2014年5月
+</div>  
 
 ##引入 Angular &lt;script&gt; 标签
     <!doctype html>

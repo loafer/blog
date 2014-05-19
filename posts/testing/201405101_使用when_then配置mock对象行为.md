@@ -81,5 +81,5 @@ Mockito when/then 的使用
 以上例子的实现代码你可以在[我的GitHub mockito工程]()中找到。   
 
 ##参考
-http://www.baeldung.com/mockito-behavior 
+http://www.baeldung.com/mockito-behavior     
 http://mockito.googlecode.com/svn/branches/1.6/javadoc/org/mockito/Mockito.html  
