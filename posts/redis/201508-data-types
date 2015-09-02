@@ -1,0 +1,103 @@
+Redis不单是个key-value数据库，更是个数据结构服务器，它支持不同种类的values。这意味着传统key-value存储是String类型的key对应String类型的value，而在Redis中value不仅能存储简单的String而且还能存储复杂的数据结构。下面是Redis支持的所有数据结构列表。
+  +二进制安全的字符串
+  +Lists：维持着插入顺序的String集合。
+  +Sets：无重复的、非排序的String集合。
+  +Sorted sets：类似Sets，但是每个String元素被关联一个浮点数，被称作`得分`。每个元素通过它们的`得分`来排序，与Sets不同它能返回一定范围的元素。（如你可以要求：给我前10个，或给我后10个）
+  +Hashs：由`字段`与它关联的`值`组成的图。但是`字段`和`值`都是字符串。这非常类似Ruby和Python的hashes。
+  +Bit arrays（或 简单的bitmaps）：t is possible, using special commands, to handle String values like an array of bits: you can set and clear individual bits, count all the bits set to 1, find the first set or unset bit, and so forth.
+  +HyperLogLogs：这是一个概率数据结构用于估算一组基数。
+
+##Redis Keys
+Redis　key是二进制安全的，你可以使用任何二进制序列作为key，从一个字符串`foo`到一个JPEG文件内容。空字符串也是有效的key。
+
+以下是关于keys的一些规则：
+  +keys不建议太长，一个1024字节的key即不便于记忆，也不便于查找，因为查找时会付出高昂的代价。对于一个很大的值可以使用SHA1作为Key，这从内存和带宽来看都有好处。
+  +keys太短也不好。如`u1000flw`建议使用`user:1000:flowers`替换，后者不仅占用空间小，而且具有更好的可读性。短键可以消耗更小的内存，但你需要在与可读性之间找到更好的平衡。
+  +试着坚持一种模式。例如`object-type:id`是个好主意，如'user:1000'。`.`或`-`通常用于多个词之间，如"comment:1234:reply.to"或"comment:1234:reply-to"。
+  +key最大容量512MB
+
+##Redis Strings
+String是Redis最简单的值类型。因为在Memcached中仅有这一种类型，因此对于使用Redis的新人而言会很自然的选择它。
+由于key是字符串，当使用字符串作为值时，其实就是将一个字符串映射到另一个字符串。字符串数据类型适用很多场景，如缓存HTML片段或页面。
+下面做个演示（所有列子都是使用redis-cli执行的）
+```shell
+>set mykey somevalue
+OK
+>get mykey
+"somevalue"
+```
+
+使用`SET`或`GET`命令设置和获取String值。注意`SET`将会替换Key的当前值。因此`SET`是一个赋值操作。
+values可以是任意类型的字符串（包括二进制数），列如，你可以存储一个jpeg图片在一个key中，但是value最大不能大于`512MB`。
+
+`SET`命令有个选项可以控制如果Key已存在则赋值失败。
+```shell
+>set mykey newval nx
+(nil)
+>set mykey newval xx
+OK
+```
+
+可以对字符串实现自增操作
+```shell
+>set counter 100
+OK
+>incr counter
+(integer) 101
+>incr counter
+(integer) 102
+>incrby counter 50
+(integer) 152
+```
+
+`INCR`转换String值为一个integer，并加１。还有类似的命令`INCRBY`,`DECR`,`DECRBY`。
+`INCR`是原子操作，当２个客户端同时对同一个key执行`INCR`时，不会出现在同一时间出现client1读出的是10，client2读出的是10。同一时间只能有一个客户端被执行。
+`GETSET`为key设置新值并返回旧值。
+`MSET`、`MGET`可以设置和接收多个key的值。
+
+```shell
+>mset a 10 b 20 c 30
+OK
+>mget a b c
+1)"10"
+2)"20"
+3)"30"
+```
+
+当使用`MGET`时，Redis返回一个value数组。
+
+##修改和查询Key
+`EXISTS`命令返回１或０来表示一个key是否存在或不存在。
+`DEL`命令用来删除一个key和与它关联的value。
+
+```shell
+>set mykey hello
+OK
+>exists mykey
+(integer) 1
+>del mykey
+(integer) 1
+>exists mykey
+(integer) 0
+```
+
+`type`命令用于查看指定key存储的数据类型
+
+```shell
+>set mykey x
+OK
+>type mykey
+string
+>del mykey
+(integer) 1
+>type mykey
+none
+```
+
+##为Key设置有效期
+你可以为Key设置一个有效期，来限制这个key的存活时间。当时间达到后，这个Key将自动被销毁。这与使用`DEL`命令作用在这个Key上的效果一样。
+
+以下是关于有效期的一些信息：
+  +可以使用秒或毫秒为单位
+  +
+  +有效期信息可以被复制和持久化，当Redis服务停止后，这个时间依然再流逝。

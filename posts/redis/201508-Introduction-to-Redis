@@ -1,0 +1,15 @@
+Redis是开源的key-value缓存和数据库。由于它的key支持strings，hashes，lists，sets，sorted sets，bitmaps和hyperloglogs，所以通常被当做`数据结构服务器`使用。
+
+Redis是一个高性能的内存数据库。根据你的使用场景，你也可以每隔一段时间将数据持久化到磁盘，或者通过日志记录每条执行命令。如果你只需要一个功能丰富、网络化的内存缓存，你可以禁止持久化操作。
+
+Redis也支持trivial-to-setup模式的主从异步复制。
+
+其他特性包括：
+  +事务
+  +发布/订阅
+  +Lua脚本
+  +key有效期限制
+  +key支持LRU算法
+  +自动故障转移
+
+Redis使用ANSI C 开发，它不需要其他依赖就能工作在大多数的POSIX系统，如：Linux、*BSD、OS X。Redis可以发布在Linux和OS X系统上，但是我们推荐使用`Linux`系统发布。Resdis也可以工作在Solaris系统，但需要更好的支持。官方不支持Windows环境，但是这里有个[64位的Redis](https://github.com/MSOpenTech/redis),由微软提供开发和维护。
