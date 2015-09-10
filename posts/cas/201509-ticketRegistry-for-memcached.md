@@ -12,7 +12,10 @@ CAS默认ticket存储方式是基于内存的。这个对于单节点的cas-serv
 ```
 
 ##配置
-```xmlTranscoderhost:11211"
+```xml
+<bean id="ticketRegistry"
+  class="org.jasig.cas.ticket.registry.MemCacheTicketRegistry"
+  c:hostnames="Transcoderhost:11211"
   c:ticketGrantingTicketTimeOut="36000"
   c:serviceTicketTimeOut="2"/>
 ```
