@@ -173,7 +173,7 @@ sAMAAccountName是AD(Active Directory)个人dn节点上的一个属性，可用�
 <bean id="authenticator"
   class="org.ldaptive.auth.Authenticator"
   c:resolver-ref="dnResolver"
-  c:handler-ref="authHan★dler" />
+  c:handler-ref="authHandler" />
 
 <bean id="dnResolver"
   class="org.ldaptive.auth.PooledSearchDnResolver"
