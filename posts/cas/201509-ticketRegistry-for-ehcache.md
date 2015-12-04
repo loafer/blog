@@ -1,0 +1,2 @@
+cas4.0——基于ehcache的Ticket存储
+cas默认ticket存储方式是基于内存的。这个对于单节点的cas-server发布是没有问题。假如采用集群方式部署cas-server，为了使各节点共享ticket，就必须将其存放在一个公共的存储介质中，这里选择使用ehcache实现各节点内存中ticket的同步。
