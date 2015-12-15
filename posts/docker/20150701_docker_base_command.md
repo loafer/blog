@@ -124,6 +124,10 @@ $docker stop deamon_while
 $docker stop 9434d74f2b06
 ```
 
+####退出容器
+默认情况下,如果使用`ctrl+c` 退出容器，那么容器也会停止．
+按`ctrl+p`或`ctrl+q`可以退出到宿主机，而保持容器仍在运行．
+
 ####删除容器
 ```shell
 #使用名称删除容器
@@ -166,4 +170,10 @@ $docker exec -d deamon_while mkdir -p /tmp/hello
 
 ```shell
 $docker exec -ti inspect_shell /bin/bash
+```
+
+
+####使用Dockerfile构建镜像
+```shell
+$docker build -t java:8 .
 ```
