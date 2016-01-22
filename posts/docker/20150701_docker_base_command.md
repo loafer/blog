@@ -138,6 +138,11 @@ $docker rm inspect_shell
 $docker rm 3caf17676478
 ```
 
+####容器重命名
+```shell
+$docker rename oldname newname
+```
+
 ####依附容器
 对于一个正在运行的`交互型容器`可以使用`docker attach`命令将终端依附到容器上（即:回到容器的终端上）
 
