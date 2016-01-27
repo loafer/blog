@@ -77,3 +77,32 @@ $ git branch -m fixbug hotfix
 $ git push origin --delete hotfix
 ```
 以上命令为删除当前版本库的 hotfix 远程分支。
+
+###git tag
+不带参数的时候，git tag 列出所有标签。
+```shell
+$ git tag
+ 0.2
+ 0.3
+```
+使用-a选项（可省略），可以创建一个新的 tag
+```shell
+$ git tag -a 0.3 -m "tagging version 0.3" #创建一个0.3标签
+```
+
+使用-d选项，可以删除一个已存在的标签
+```shell
+$ git tag -d 0.3 #删除0.3的标签
+```
+使用 git push origin 命令可以将本地标签提交到远程仓库中
+```shell
+$ git push origin 0.3 #将0.3标签提交到远程仓库中
+```
+如果要删除远程仓库中的一个标签，可以使用如下命令
+```shell
+$ git push origin --delete tag 0.3 #删除远程仓库中的0.3标签
+```
+或者
+```shell
+$ git push origin :refs/tags/0.3 #作用与上面使用选项 --delete tag 效果一样
+```
