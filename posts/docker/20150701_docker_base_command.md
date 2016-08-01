@@ -73,7 +73,11 @@ $docker run -i -t --name=inspect_shell ubuntu /bin/bash
 - 后台型容器：运行在后台，创建启动之后就与终端无关。即使终端关闭了，改后台容器依然存在，只有调用`docker stop`或`docker kill`命令才能是容器变为停止状态。在实际的应用中，大多数容器都是后台型容器，服务程序不可能因为创建容器的终端退出而停止。
 
 ```shell
-$docker run -name=deamon_while -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"
+$docker run --name=deamon_while -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"
+```
+
+```shell
+$docker run --name=tomcat -d -p 8080:8080 tomcat:8
 ```
 
 
